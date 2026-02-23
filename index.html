@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Boback Firoozbakht</title>
+  <meta name="description" content="Boback Firoozbakht works at the intersection of design, real estate development, and marketing. Portfolio, biography, and project list." />
+  <meta name="keywords" content="Boback Firoozbakht, architecture, real estate development, design, portfolio, projects, developer, educator" />
+  <meta name="author" content="Boback Firoozbakht" />
+  <style>
+    /* Neue Haas Grotesk font-face (local or fallback) */
+    @font-face {
+      font-family: 'Neue Haas Grotesk';
+      src: local('Neue Haas Grotesk'), local('NeueHaasGrotesk'),
+           url('https://fonts.cdnfonts.com/s/17274/NeueHaasGroteskTextW01-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+    }
+    :root { --font: 'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;width:100%;font-family:var(--font);background:#fff;color:#000}
+
+    /* Center area */
+    .stage{height:100vh;display:grid;grid-template-rows:auto 1fr auto;align-items:center;justify-items:center}
+
+    /* Home layout */
+    #home{display:flex;align-items:center;justify-content:center;flex-direction:column;width:100%;height:100%}
+
+    /* Homepage quote box */
+    #quote-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: min(90vw, 1000px);
+      max-width: 98vw;
+      min-height: 8em;
+      max-height: 65vh;
+      margin: 0 auto;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 0 2vw;
+    }
+    .quote {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: var(--font);
+      font-size: clamp(1.1rem, 5vw, 2.2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      white-space: pre-line;
+      margin: 0 auto;
+      box-sizing: border-box;
+      background: #fff;
+      padding: 0 2vw;
+      width: 100%;
+      min-height: 7em;
+      max-width: 98vw;
+      max-height: 55vh;
+      transition: opacity 0.4s cubic-bezier(.4,0,.2,1);
+    }
+    .quote.active {
+      display: flex;
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 2;
+    }
+    @media (max-width:600px){
+          /* Landscape orientation fix for iPhone */
+          @media (max-width:900px) and (orientation: landscape) {
+            html, body {
+              height: 100vh;
+              min-height: 100vh;
+              width: 100vw;
+              overflow: auto;
+            }
+            .stage, #home, #info {
+              height: 100vh !important;
+              min-height: 100vh !important;
+              width: 100vw !important;
+              overflow: auto !important;
+            }
+            #info .info-panel {
+              height: 100vh !important;
+              max-height: 100vh !important;
+              overflow-y: auto !important;
+            }
+            /* If viewport height is less than 350px, show rotate message */
+            #rotate-message {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: fixed;
+              top: 0; left: 0; right: 0; bottom: 0;
+              background: #fff;
+              color: #000;
+              font-size: 1.2rem;
+              z-index: 9999;
+              text-align: center;
+            }
+          }
+        <div id="rotate-message" style="display:none;">Please rotate your device to portrait mode for the best experience.</div>
+          <script>
+            // Show rotate message if viewport height is too short (landscape on iPhone)
+            function checkRotateMessage() {
+              const rotateMsg = document.getElementById('rotate-message');
+              if (window.innerHeight < 350 && window.innerWidth > window.innerHeight) {
+                rotateMsg.style.display = 'flex';
+              } else {
+                rotateMsg.style.display = 'none';
+              }
+            }
+            window.addEventListener('resize', checkRotateMessage);
+            window.addEventListener('orientationchange', checkRotateMessage);
+            document.addEventListener('DOMContentLoaded', checkRotateMessage);
+          </script>
+      html, body {
+              // Toggle BF initials to full name on click or hover
+              const initials = document.getElementById('initials');
+              let showingFull = false;
+              const shortText = 'BF';
+              const fullText = 'BOBACK FIROOZBAKHT';
+
+              function showFull() {
+                initials.textContent = fullText;
+                showingFull = true;
+              }
+              function showShort() {
+                initials.textContent = shortText;
+                showingFull = false;
+              }
+
+              initials.addEventListener('mouseenter', showFull);
+              initials.addEventListener('mouseleave', showShort);
+              initials.addEventListener('click', () => {
+                if (showingFull) {
+                  showShort();
+                } else {
+                  showFull();
+                }
+              });
+        height: 100dvh;
+        min-height: 100dvh;
+        width: 100vw;
+        /* Remove overflow: hidden and position: fixed to allow scrolling */
+      }
+      .stage {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+        min-height: 100dvh;
+        width: 100vw;
+        overflow: hidden;
+      }
+      #home {
+        width: 100vw;
+        height: 100dvh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .quote {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: var(--font);
+        font-size: clamp(0.95rem, 5vw, 1.45rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 1.18;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        white-space: pre-line;
+        margin: 0 auto;
+        box-sizing: border-box;
+        background: #fff;
+        padding: 0 4vw;
+        width: 100%;
+        min-height: 7em;
+        max-width: 98vw;
+        max-height: 55vh;
+        transition: opacity 0.4s cubic-bezier(.4,0,.2,1);
+      }
+      .quote.active {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 2;
+      }
+      #quote-box {
+        width: 98vw;
+        max-width: 98vw;
+        margin-left: 1vw;
+        margin-right: 1vw;
+        min-height: 8em;
+        max-height: 60vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+     /* Top bar spacing and bottom name placement (grid rows handle centering)
+       Match the info panel's padding so top and bottom align visually. */
+     .top-bar{padding-top:1.2rem;width:100%;display:flex;justify-content:center;align-items:flex-start;z-index:50}
+
+    #proj-title{position:static;margin:0 0 1.6rem 0;text-align:center;font-weight:700;z-index:40;text-transform:uppercase;transition:color .18s,background .18s,letter-spacing .18s;cursor:pointer;}
+    #proj-title span{display:inline-block;transition:opacity .18s,letter-spacing .18s;}
+
+    #initials{
+      font-weight:700;
+      font-size:1rem; /* match info page text size */
+      line-height:1;
+      cursor:pointer;
+      user-select:none;
+      transition:font-size .18s ease, letter-spacing .18s ease;
+      letter-spacing:-0.02em;
+      text-transform:uppercase;
+    }
+
+    /* Info panel (hidden by default) */
+    #info{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:#fff;
+      align-items:center;
+      justify-content:center;
+      -webkit-overflow-scrolling:touch;
+      color:#000;
+      overflow-y: auto;
+      height: 100vh;
+    }
+    #info.active{display:flex}
+    #info .info-panel{
+      width: min(75vmin, 900px);
+      max-width: 98vw;
+      height: 100vh;
+      max-height: 100vh;
+      margin: 0 auto;
+      padding: 1.2rem;
+      box-sizing: border-box;
+      /* Remove panel scroll, let overlay scroll */
+      overflow: visible;
+      -webkit-overflow-scrolling:unset;
+      background: transparent;
+      border-radius: 0;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:1rem;
+      text-align:left;
+      font-size:1rem;
+      color:#000;
+          }
+          #info .info-left, #info .info-right{width:100%}
+          #info .info-panel, #info .info-panel *{color:#000}
+          #info .info-panel, #info .info-panel * { font-weight:700; }
+          .bio{line-height:1.38;font-size:1rem;margin-bottom:0.5rem}
+          .projects{list-style:none;padding-left:0;margin-bottom:1.2rem}
+          .projects li{font-weight:700;padding:0.08rem 0;text-transform:none}
+          .section-title{font-weight:700;margin-top:0.25rem;margin-bottom:0.25rem;text-transform:uppercase}
+          /* Headings: bold */
+          .section-title, #proj-title {
+            font-weight: 700;
+          }
+          /* Body text: regular */
+          .bio, #info .info-panel, .projects, .projects li, .job-list, .job-list li, .contact {
+            font-weight: 400;
+          }
+          .education{margin-bottom:1rem}
+          .job-list{list-style:none;padding-left:0;margin:0 0 1rem 0}
+          .job-list li{font-weight:700;padding:0.08rem 0}
+          .contact{display:inline-block;font-weight:700;cursor:pointer}
+          @media (max-width:600px){
+            #initials{font-size:1rem}
+            #info {
+              align-items: flex-start;
+              justify-content: flex-start;
+              height: 100dvh;
+              min-height: 100dvh;
+              width: 100vw;
+              overflow-y: auto;
+            }
+            #info .info-panel {
+              width: 100vw;
+              max-width: 100vw;
+              height: auto;
+              max-height: none;
+              padding: 1.2rem 4vw calc(1.2rem + env(safe-area-inset-bottom, 0px)) 4vw;
+              box-sizing: border-box;
+              overflow: visible;
+              -webkit-overflow-scrolling: unset;
+              border-radius: 0;
+              display: block;
+              text-align: left;
+              font-size: 1rem;
+              color: #000;
+            }
+            @media (max-width:900px) and (orientation: landscape) {
+              #info .info-panel {
+                max-width: 95vw !important;
+                padding-left: 2vw !important;
+                padding-right: 2vw !important;
+              }
+              .bio {
+                max-width: 90vw !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+              }
+            }
+            #info .info-left, #info .info-right{width:100%}
+          }
+        </style>
+      </head>
+      <body>
+
+        <div class="stage">
+          <div class="top-bar">
+            <div id="initials" style="cursor:pointer">BF</div>
+          </div>
+            <div id="home">
+              <h1 style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Boback Firoozbakht</h1>
+              <div id="quote-box">
+                <!-- Quotes will be injected here by JS -->
+              </div>
+            </div>
+          <div id="proj-title" tabindex="0" style="cursor:pointer">INFO</div>
+          <div id="info" aria-hidden="true">
+            <div class="info-panel" id="info-panel">
+              <div class="info-content">
+      <div class="bio">BOBACK FIROOZBAKHT works at the intersection of design, real estate development, and marketing. His career has taken shape across some of the most demanding environments in the field.<br><br>
+    Educated at the Rhode Island School of Design and the University of Texas at Arlington, he pursued architecture as a tool for development, with design as the driver of environmental, social, and financial outcomes.<br><br>
+    Early roles established fluency in design as both business and practice. At OMA New York, he managed North and South American business development under OMA Partner Shohei Shigematsu. At Rafael Viñoly Architects, he led new business development and secured the winning proposal for the Rockefeller River Campus at The Rockefeller University. At TsAO & McKOWN, he coordinated design directly with the development partner for the Sangha Hotel & Retreat in Suzhou, China.<br><br>
+    He founded his own company at 26, overseeing the design, development, construction, marketing, and sales of new construction, renovations, and the entitlements process for a 24-home residential community.<br><br>
+    He served as Design Director at Starwood Hotels across 1 Hotels & Homes and Baccarat Hotels & Residences, working directly with Barry Sternlicht. At Extell Development Company, as Vice President of Design, he directed pre-development planning and led Gary Barnett's first in-house interior design program for a 685,000-square-foot residential tower in Lower Manhattan.<br><br>
+    Alongside his practice, he served as Adjunct Assistant Professor at the University of Texas at Arlington and directed the Watershed Urbanism exhibition for the 2021 Venice Architecture Biennale, in collaboration with UNESCO Chair Adrian Parr Zaretsky. He also contributed to campaign site strategy and principal advance for President William J. Clinton and Secretary Hillary Clinton across 52 U.S. cities.<br><br>
+    Boback has been featured in Architecture Boston, Builder Magazine, the Clinton Global Initiative, Cooper-Hewitt, D Magazine, Design Indaba, and GE.<br><br>
+
+    <div class="section-title">EDUCATION</div>
+    <div>Master of Interior Architecture<br>Honors<br>Rhode Island School of Design</div>
+    <div style="margin-top:0.5rem">Bachelor of Science in Architecture<br>Magna Cum Laude<br>University of Texas, Arlington</div>
+    <div style="height:1.2rem"></div>
+
+    <div class="section-title">PROJECTS</div>
+    <ul class="projects">
+    <li>Arlington Park Center</li>
+    <li>Calender Grove</li>
+    <li>180 East 125th Street</li>
+    <li>259 Clinton Street</li>
+    <li>356 Fulton Street</li>
+    <li>1 Hotel Austin</li>
+    <li>1 Hotel Barcelona</li>
+    <li>1 Hotel Cairo</li>
+    <li>1 Hotel Copenhagen</li>
+    <li>1 Hotel Dallas</li>
+    <li>1 Hotel Denver</li>
+    <li>1 Hotel Diriyah Gate</li>
+    <li>1 Hotel Healdsburg</li>
+    <li>1 Hotel Hudson</li>
+    <li>1 Hotel Lake Como</li>
+    <li>1 Hotel Mexico City</li>
+    <li>1 Hotel Nashville</li>
+    <li>1 Hotel Niseko</li>
+    <li>1 Hotel Rancho Mirage</li>
+    <li>1 Hotel Rome</li>
+    <li>1 Hotel San Francisco</li>
+    <li>1 Hotel San Miguel</li>
+    <li>1 Hotel Seattle</li>
+    <li>1 Hotel South Beach</li>
+    <li>1 Hotel Tokyo</li>
+    <li>1 Hotel West Hollywood</li>
+    <li>Baccarat Hotel Copenhagen</li>
+    <li>Baccarat Hotel Diriyah Gate</li>
+    <li>Baccarat Hotel Florence</li>
+    <li>Baccarat Hotel London</li>
+    <li>Baccarat Hotel Miami</li>
+    <li>Baccarat Hotel Paris</li>
+    <li>Baccarat Hotel Rome</li>
+    <li>Dallas Warehouse District</li>
+    <li>Deloache Residence</li>
+    <li>Lavendale Residence</li>
+    <li>Marseille Residence</li>
+    <li>Potomac Estate</li>
+    <li>Potomac Residence</li>
+    <li>Preston Haven Residence</li>
+    <li>Travis Townhome 20</li>
+    <li>Travis Townhome 21</li>
+    <li>Great Taipei New Town District</li>
+    <li>OPEN Exhibition</li>
+    <li>Sangha Hotel & Retreat</li>
+    </ul>
+   
+    </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function(){
+            const initialsEl = document.getElementById('initials');
+            const homeEl = document.getElementById('home');
+            const infoEl = document.getElementById('info');
+            const projTitleEl = document.getElementById('proj-title');
+            const quoteBox = document.getElementById('quote-box');
+            let showingInfo = false;
+            function showHeaderFullName(){ initialsEl.textContent = 'BOBACK FIROOZBAKHT'; }
+            function showHeaderInitials(){ initialsEl.textContent = 'BF'; }
+            initialsEl.addEventListener('click', function(){ window.open('https://www.instagram.com/bobackfiroozbakht/', '_blank'); });
+            initialsEl.addEventListener('mouseenter', showHeaderFullName);
+            initialsEl.addEventListener('mouseleave', showHeaderInitials);
+            initialsEl.addEventListener('focus', showHeaderFullName);
+            initialsEl.addEventListener('blur', showHeaderInitials);
+
+            // QUOTE LOGIC - robust, fade, no overlap, always centered, flex only
+            if (!window._quoteLogicInitialized) {
+              window._quoteLogicInitialized = true;
+              const quotes = [
+                'A NEW GENERATION OF\nREAL ESTATE DEVELOPMENT',
+                'WHEN EVERYTHING IS UNIQUE\nNOTHING IS UNIQUE',
+                'LESS IS ENOUGH',
+                'DESIGN-DRIVEN EVERYTHING',
+                'DEVELOP CONSCIOUSLY',
+                'RESTRAINT IS A SKILL',
+                'NOT TRENDING',
+                'CONTEXT\nCONTEXT\nCONTEXT',
+                'SUSTAINABILITY IS STANDARD',
+                'RETHINKING SPECULATIVE',
+                'FORM FOLLOWS RESPONSIBILITY',
+                'HOSPITALITY IS A SERVICE\nNOT A STYLE',
+              ];
+              let currentQuote = 0;
+              let quoteEls = [];
+              // Clear and inject all quote divs
+              quoteBox.innerHTML = '';
+              quotes.forEach((q, i) => {
+                const div = document.createElement('div');
+                div.className = 'quote' + (i === 0 ? ' active' : '');
+                div.setAttribute('aria-live', 'polite');
+                div.setAttribute('aria-atomic', 'true');
+                div.innerHTML = q.replace(/\n/g, '<br>');
+                quoteBox.appendChild(div);
+                quoteEls.push(div);
+              });
+              function showQuote(index=0) {
+                quoteEls.forEach((el, i) => {
+                  if (i === index) {
+                    el.classList.add('active');
+                  } else {
+                    el.classList.remove('active');
+                  }
+                });
+                currentQuote = index;
+              }
+              showQuote(0);
+              if (window.quoteInterval) clearInterval(window.quoteInterval);
+              window.quoteInterval = setInterval(() => {
+                showQuote((currentQuote + 1) % quotes.length);
+              }, 2000);
+            }
+            function showInfoOverlay(){
+              if (showingInfo) return;
+              infoEl.classList.add('active');
+              infoEl.setAttribute('aria-hidden','false');
+              infoEl.scrollTop = 0;
+              const infoPanel = infoEl.querySelector('.info-panel');
+              if (infoPanel) infoPanel.scrollTop = 0;
+              document.documentElement.style.setProperty('background', '#fff', 'important');
+              document.body.style.setProperty('background', '#fff', 'important');
+              document.documentElement.style.setProperty('color', '#000', 'important');
+              document.body.style.setProperty('color', '#000', 'important');
+              document.documentElement.style.setProperty('height', '100dvh', 'important');
+              document.body.style.setProperty('height', '100dvh', 'important');
+              document.documentElement.style.setProperty('minHeight', '100dvh', 'important');
+              document.body.style.setProperty('minHeight', '100dvh', 'important');
+              homeEl.style.display = 'none';
+              if (projTitleEl) projTitleEl.style.display = 'none';
+              if (initialsEl) initialsEl.style.display = 'none';
+              showingInfo = true;
+              history.pushState({info:true}, document.title);
+            }
+            function hideInfoOverlay(){
+              infoEl.classList.remove('active');
+              infoEl.setAttribute('aria-hidden','true');
+              document.documentElement.style.setProperty('background', '#fff', 'important');
+              document.body.style.setProperty('background', '#fff', 'important');
+              document.documentElement.style.setProperty('height', '100%', 'important');
+              document.body.style.setProperty('height', '100%', 'important');
+              document.documentElement.style.setProperty('minHeight', '100%', 'important');
+              document.body.style.setProperty('minHeight', '100%', 'important');
+              homeEl.style.display = 'flex';
+              if (projTitleEl) projTitleEl.style.display = 'block';
+              if (initialsEl) initialsEl.style.display = 'flex';
+              showingInfo = false;
+            }
+            function attachInfoOpener(el) {
+              if (!el) return;
+              el.addEventListener('click', ()=>{ showInfoOverlay(); });
+              el.addEventListener('keypress', (e)=>{
+                if (e.key === 'Enter' || e.key === ' ') showInfoOverlay();
+              });
+            }
+            attachInfoOpener(projTitleEl);
+            window.addEventListener('popstate', (e)=>{
+              const state = e.state || {};
+              if (state.info) {
+                showInfoOverlay();
+              } else {
+                hideInfoOverlay();
+              }
+            });
+          });
+          document.addEventListener('DOMContentLoaded', function(){
+            const infoEl = document.getElementById('info');
+            const infoPanel = document.getElementById('info-panel');
+            if (infoEl) {
+              infoEl.addEventListener('click', function() {
+                history.back();
+              });
+            }
+            if (infoPanel) {
+              infoPanel.addEventListener('click', function() {
+                history.back();
+              });
+            }
+          });
+        </script>
+      </body>
+      </html>
